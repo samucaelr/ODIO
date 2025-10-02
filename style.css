@@ -1,10 +1,11 @@
 /* style.css */
 
-@import url('styles/_variables.css');
+@import url('styles/variables.css');
 @import url('styles/global.css');
 @import url('styles/header.css');
 @import url('styles/main.css');
 @import url('styles/footer.css');
 @import url('styles/media.css');
+
 
 /* Aqui podes ter outros estilos, ou podes deixar este ficheiro apenas para importações */
