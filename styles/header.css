@@ -1,0 +1,29 @@
+/* header.css */
+
+header {
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--cor-fundo);
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.links a.active {
+    font-weight: bold;
+    color: var(--cor-preto);
+    border-bottom: 2px solid var(--cor-borda-link-ativo);
+}
+
+header div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: fit-content;
+}

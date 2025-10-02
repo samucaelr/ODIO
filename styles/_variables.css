@@ -1,0 +1,45 @@
+/* _variables.css */
+
+:root {
+    /* Fontes */
+    --fonte-principal: "Open Sans", sans-serif;
+    --fonte-tamanho-base: 15px;
+    --fonte-tamanho-headline: 20px;
+
+    /* Variáveis padrão (para o tema de Hernandarias) */
+    --cor-fundo: #F0F3E8;
+    --cor-texto-principal: #425944;
+    --cor-texto-secundaria: #647B66;
+    --cor-destaque: #81A858;
+    --cor-link: #425944;
+    --cor-preto: #000000;
+    --cor-borda-link-ativo: #81A858;
+    --cor-cinza-claro: #d9d9d9;
+    --cor-cinza-medio: #696969;
+}
+
+/* Paleta de cores para Ciudad del Este */
+body.tema-cde {
+    --cor-fundo: #FBF7F0;
+    --cor-texto-principal: #5A4737;
+    --cor-texto-secundaria: #7A6250;
+    --cor-destaque: #D4793B;
+    --cor-link: #D4793B;
+    --cor-preto: #000000;
+    --cor-borda-link-ativo: #D4793B;
+    --cor-cinza-claro: #d9d9d9;
+    --cor-cinza-medio: #696969;
+}
+
+/* Paleta de cores para Foz do Iguaçu */
+body.tema-foz {
+    --cor-fundo: #F5F7FA;
+    --cor-texto-principal: #1F3F66;
+    --cor-texto-secundaria: #426485;
+    --cor-destaque: #3B72A4;
+    --cor-link: #3B72A4;
+    --cor-preto: #000000;
+    --cor-borda-link-ativo: #3B72A4;
+    --cor-cinza-claro: #d9d9d9;
+    --cor-cinza-medio: #696969;
+}
