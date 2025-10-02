@@ -44,24 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// --- IMPORTANTE: CONFIGURAÇÃO ---
-// Substitui a [SUA_CHAVE_AQUI] pela chave de API GRATUITA do OpenWeatherMap.
-// POR ENQUANTO, DEIXE O PLACEHOLDER PARA TESTAR A LÓGICA DO CÓDIGO.
+// A tua chave de API válida
 const API_KEY = "8b5fd7403a7a807b729f4cedf129d102"; 
 
-// Lista de cidades e seus IDs, que o JavaScript vai procurar no HTML.
+// A nova lista de cidades usa o nome e o código do país (mais robusto que o ID)
 const CIDADES = [
-    { id: 3438069, nome: 'Hernandarias', elementoId: 'temperatura-her' },
-    { id: 3439404, nome: 'Ciudad del Este', elementoId: 'temperatura-cde' },
-    { id: 3462947, nome: 'Foz do Iguaçu', elementoId: 'temperatura-foz' }
+    { nomeApi: 'Hernandarias,PY', elementoId: 'temperatura-her' },
+    { nomeApi: 'Ciudad del Este,PY', elementoId: 'temperatura-cde' },
+    { nomeApi: 'Foz do Iguacu,BR', elementoId: 'temperatura-foz' }
 ];
 
-// URL base da API para buscar dados do clima
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 
-// --- FUNÇÃO PRINCIPAL ---
-// Esta função inicia o processo para buscar o clima de todas as cidades
+// Função que inicia o processo
 function buscarClima() {
     CIDADES.forEach(cidade => {
         fazerPedidoClima(cidade);
@@ -69,40 +65,33 @@ function buscarClima() {
 }
 
 
-// --- FUNÇÃO DE REQUISIÇÃO (FETCH) ---
-// Faz o pedido à API do OpenWeatherMap
+// A função de requisição (FETCH) foi ajustada para buscar por nome
 function fazerPedidoClima(cidade) {
-    // Constrói o URL com ID, chave e unidade Celsius
-    const url = `${API_URL}?id=${cidade.id}&appid=${API_KEY}&units=metric&lang=pt`;
+    // Agora o URL usa 'q' (query) em vez de 'id'
+    const url = `${API_URL}?q=${cidade.nomeApi}&appid=${API_KEY}&units=metric&lang=pt`;
 
     fetch(url)
         .then(response => {
             if (!response.ok) {
-                // Erro HTTP (a chave provavelmente está errada, por isso o 401 ou 404)
-                throw new Error(`HTTP error! status: ${response.status}`);
+                // Se der erro, mostra o erro no console
+                throw new Error(`HTTP error! status: ${response.status} - Verifique o nome da cidade.`);
             }
             return response.json();
         })
         .then(data => {
-            // Se tiver sucesso, chama a função para mostrar na tela
             mostrarClimaNaPagina(cidade, data);
         })
         .catch(error => {
             console.error('Houve um problema com o pedido fetch:', error);
-            // Mensagem de erro que aparece na tela
             document.getElementById(cidade.elementoId).innerHTML = 'Erro ao carregar clima.';
         });
 }
 
 
-// --- FUNÇÃO PARA MOSTRAR NA PÁGINA ---
-// Pega a resposta da API e formata o HTML
+// Função para mostrar o clima na página (sem alterações)
 function mostrarClimaNaPagina(cidade, data) {
-    // Arredonda a temperatura e pega a descrição
     const temperatura = Math.round(data.main.temp);
     const descricao = data.weather[0].description;
-    
-    // Deixa a primeira letra em maiúscula
     const climaFormatado = descricao.charAt(0).toUpperCase() + descricao.slice(1);
 
     const htmlClima = `
@@ -112,7 +101,6 @@ function mostrarClimaNaPagina(cidade, data) {
         </div>
     `;
 
-    // Insere o HTML dentro da tag que tem o ID correto
     const elemento = document.getElementById(cidade.elementoId);
     if (elemento) {
         elemento.innerHTML = htmlClima;
@@ -120,6 +108,5 @@ function mostrarClimaNaPagina(cidade, data) {
 }
 
 
-// --- INICIAR AO CARREGAR A PÁGINA ---
-// Inicia a função buscarClima quando todo o HTML estiver carregado
+// Inicia a função ao carregar a página
 document.addEventListener('DOMContentLoaded', buscarClima);
