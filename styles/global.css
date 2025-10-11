@@ -30,6 +30,7 @@ img {
   height: 40%;
   max-height: 350px;
   border-radius: 28px;
+  color: var(--cor-texto-principal);
 }
 
 h1 {
@@ -132,3 +133,4 @@ a {
   justify-content: center;
   align-items: center;
 }
+
