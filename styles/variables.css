@@ -1,0 +1,75 @@
+:root {
+    /* Tipografia */
+    --fonte-principal: "Open Sans", sans-serif;
+    --fonte-tamanho-base: 15px;
+    --fonte-tamanho-headline: 20px;
+
+    /* Cores */
+    --cor-fundo: #f0f3e8;
+    --cor-texto-principal: #425944;
+    --cor-texto-secundaria: #647b66;
+    --cor-destaque: #81a858;
+    --cor-link: #425944;
+    --cor-preto: #000000;
+    --cor-borda-link-ativo: #81a858;
+    --cor-cinza-claro: #d9d9d9;
+    --cor-cinza-medio: #696969;
+}
+
+body.tema-cde,
+.tema-cde {
+    --cor-fundo: #fbf7f0;
+    --cor-texto-principal: #5a4737;
+    --cor-texto-secundaria: #7a6250;
+    --cor-destaque: #d4793b;
+    --cor-link: #d4793b;
+    --cor-borda-link-ativo: #d4793b;
+}
+
+body.tema-foz,
+.tema-foz {
+    --cor-fundo: #f5f7f78;
+    --cor-texto-principal: #1f3f66;
+    --cor-texto-secundaria: #426485;
+    --cor-destaque: #3b72a4;
+    --cor-link: #3b72a4;
+    --cor-borda-link-ativo: #3b72a4;
+}
+
+body.dark-mode,
+.dark-mode {
+    --cor-fundo: #121212;
+    --cor-texto-principal: #81a858;
+    --cor-texto-secundaria: #cccccc;
+    --cor-preto: #f4f4f4;
+    --cor-cinza-claro: #333333;
+    --cor-cinza-medio: #666666;
+    --cor-destaque: #79a83d;
+    --cor-link: #79a83d;
+    --cor-borda-link-ativo: #79a83d;
+}
+
+body.tema-cde.dark-mode,
+.tema-cde.dark-mode {
+    --cor-texto-principal: #d4793b;
+    --cor-texto-secundaria: #cccccc;
+    --cor-preto: #f4f4f4;
+    --cor-cinza-claro: #333333;
+    --cor-cinza-medio: #666666;
+    --cor-destaque: #d4793b;
+    --cor-link: #d4793b;
+    --cor-borda-link-ativo: #e89e63;
+}
+
+body.tema-foz.dark-mode,
+.tema-foz.dark-mode {
+    --cor-texto-principal: #3b72a4;
+    --cor-texto-secundaria: #cccccc;
+    --cor-preto: #f4f4f4;
+    --cor-cinza-claro: #333333;
+    --cor-cinza-medio: #666666;
+    --cor-destaque: #5897cd;
+    --cor-link: #5897cd;
+    --cor-borda-link-ativo: #5897cd;
+}
+
