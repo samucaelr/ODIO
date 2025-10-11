@@ -194,3 +194,22 @@ function toggleTheme() {
 toggleButton.addEventListener("click", toggleTheme);
 
 applySavedTheme();
+
+function detectThemePreference() {
+    // 1. Verifica se o aparelho prefere o modo escuro
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // 2. Verifica se já existe uma preferência salva (por exemplo, se o utilizador clicou no botão)
+    const savedTheme = localStorage.getItem('theme');
+
+    // Se o utilizador nunca mudou manualmente o tema
+    if (!savedTheme) {
+        if (prefersDark) {
+            // Aplica a classe do modo escuro se for a preferência do aparelho
+            document.body.classList.add('dark-mode');
+        } else {
+            // Garante que a classe do modo escuro não está lá (Modo Claro)
+            document.body.classList.remove('dark-mode');
+        }
+    }
+}
