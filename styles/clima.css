@@ -1,0 +1,41 @@
+/* ===================== Clima ===================== */
+.clima-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.clima-icone-emoji {
+  font-size: 2.5rem;
+  margin-right: 12px;
+}
+
+.clima-info .temperatura {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.clima-info .descricao {
+  position: static;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-style: italic;
+  width: 100%;
+}
+
+#temperatura-her,
+#temperatura-cde,
+#temperatura-foz {
+  min-height: 120px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
