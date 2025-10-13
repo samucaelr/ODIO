@@ -192,24 +192,37 @@ function toggleTheme() {
 }
 
 toggleButton.addEventListener("click", toggleTheme);
+const toggleBtn = document.getElementById("theme-toggle");
+const sunIcon = toggleBtn.querySelector(".fa-sun");
+const moonIcon = toggleBtn.querySelector(".fa-moon");
 
+toggleBtn.addEventListener("click", () => {
+  // Alterna visibilidade dos ícones
+  if (sunIcon.style.display === "none") {
+    sunIcon.style.display = "inline";
+    moonIcon.style.display = "none";
+  } else {
+    sunIcon.style.display = "none";
+    moonIcon.style.display = "inline";
+  }
+});
 applySavedTheme();
 
 function detectThemePreference() {
-    // 1. Verifica se o aparelho prefere o modo escuro
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // 1. Verifica se o aparelho prefere o modo escuro
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    // 2. Verifica se já existe uma preferência salva (por exemplo, se o utilizador clicou no botão)
-    const savedTheme = localStorage.getItem('theme');
+  // 2. Verifica se já existe uma preferência salva (por exemplo, se o utilizador clicou no botão)
+  const savedTheme = localStorage.getItem("theme");
 
-    // Se o utilizador nunca mudou manualmente o tema
-    if (!savedTheme) {
-        if (prefersDark) {
-            // Aplica a classe do modo escuro se for a preferência do aparelho
-            document.body.classList.add('dark-mode');
-        } else {
-            // Garante que a classe do modo escuro não está lá (Modo Claro)
-            document.body.classList.remove('dark-mode');
-        }
+  // Se o utilizador nunca mudou manualmente o tema
+  if (!savedTheme) {
+    if (prefersDark) {
+      // Aplica a classe do modo escuro se for a preferência do aparelho
+      document.body.classList.add("dark-mode");
+    } else {
+      // Garante que a classe do modo escuro não está lá (Modo Claro)
+      document.body.classList.remove("dark-mode");
     }
+  }
 }

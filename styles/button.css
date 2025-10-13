@@ -2,19 +2,11 @@
   position: fixed;
   top: 25px;
   right: 25px;
-  width: 75px;
-  height: 35px;
-  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   cursor: pointer;
-  z-index: 1000;
-  transition: all 0.4s ease-in-out;
   padding: 0 5px;
-  border: none !important;
-
-  background-color: var(--cor-cinza-claro);
   color: var(--cor-texto-principal);
 }
 
@@ -23,7 +15,15 @@
   font-size: 1.1rem;
 }
 
+#theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+#theme-toggle {
+  animation: fromTop 0.7s 0.1s backwards;
+}
+
 body.dark-mode #theme-toggle {
-  background-color: var(--cor-texto-principal);
-  color: var(--cor-fundo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
 }
